@@ -1,12 +1,12 @@
 {
-    "name": "grosv/laravel-package-template",
-    "description": "A repository template for Laravel packages",
+    "name": "artisan-build/ui",
+    "description": "A UI kit by and for Laravel Artisans",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "Ed Grosvenor",
-            "email": "ed.grosvenor@wickedviral.com"
+            "name": "Artisan Build",
+            "email": "hello@artisan.build"
         }
     ],
     "minimum-stability": "dev",
@@ -17,11 +17,12 @@
     },
     "require-dev": {
         "orchestra/testbench": "^5.0",
-        "friendsofphp/php-cs-fixer": "^2.16"
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "nunomaduro/laravel-mojito": "^0.2.6"
     },
     "autoload": {
         "psr-4": {
-            "Grosv\\LaravelPackageTemplate\\": "src/"
+            "ArtisanBuild\\UI\\": "src/"
         }
     },
     "autoload-dev": {
@@ -32,7 +33,7 @@
     },
     "extra": {
         "laravel": {
-            "providers": "Grosv\\LaravelPackageTemplate\\LaravelPackageTemplateProvider"
+            "providers": "ArtisanBuild\\UI\\UIProvider"
         }
     },
     "scripts": {

@@ -1,0 +1,1 @@
+C:37:"PHPUnit\Runner\DefaultTestResultCache":309:{a:2:{s:7:"defects";a:2:{s:32:"Tests\ExampleTest::can_run_tests";i:4;s:40:"Tests\CodeBlockTest::can_load_code_block";i:3;}s:5:"times";a:3:{s:32:"Tests\ExampleTest::can_run_tests";d:0.06;s:40:"Tests\CodeBlockTest::can_load_code_block";d:0.117;s:50:"Tests\CodeBlockTest::it_renders_code_block_default";d:0.132;}}}
