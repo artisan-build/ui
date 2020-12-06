@@ -27,7 +27,6 @@ __Help Users With Issues:__ In projects like this, most issues opened are actual
 ### Linting and Testing
 
 ```shell script
-composer test:unit # Runs PHPUnit
 composer lint # Runs php-cs-fixer to fix your coding style
-composer test # Runs lint and then test:unit 
+composer check # Runs lint and then phpunit
 ```

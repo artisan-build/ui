@@ -38,10 +38,6 @@
     },
     "scripts": {
         "lint": "php-cs-fixer fix -v",
-        "test:unit": "phpunit",
-        "test": [
-            "@lint",
-            "@test:unit"
-        ]
+        "check": "php-cs-fixer fix -v && vendor/bin/phpunit"
     }
 }
