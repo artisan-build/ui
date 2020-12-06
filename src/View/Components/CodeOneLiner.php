@@ -2,11 +2,11 @@
 
 namespace ArtisanBuild\UI\View\Components;
 
-class CodeBlock extends BaseComponent
+class CodeOneLiner extends BaseComponent
 {
     public $kit;
 
-    public $signature  = 'x-aui-code-block';
+    public $signature  = 'x-aui-code-one-liner';
 
     public function __construct($kit = 'default')
     {

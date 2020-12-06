@@ -1,5 +1,5 @@
 # Artisan UI
-An open source UI kit packed full of Blade components made by and for Laravel Artisans. 
+An open source set of UI kits packed full of Blade components made by and for Artisans. 
 
 ### Installation
 
@@ -10,15 +10,13 @@ If you are running an older version of PHP or an older verison of Laravel, you'l
 
 ### Usage
 
-This package registers Blade components that can be used to generate things like buttons, form input groups, and tables. The default version of each component uses Tailwind CSS and, if it requires Javascript, Alpine JS. We welcome Boostrap, jQuery, and other versions of each component from any community members who wish to create them. Read about how to contribute below.
+This package registers Blade components that can be used to generate things like buttons, form input groups, and tables. Each component uses TailwindCSS (v2) and, if Javascript is required, Alpine.js. They are all designed to easily integrate into TALL stack projects. You can add wire:* or x-* attributes to any component.
 
 Assuming that you are running the most current version of this package, you can find a list of all the components and the parameters they accept [on the Artisan UI website](https://artisanui.com).
 
 ### Contributing
 
 There are several ways you can get involved in helping to build this package.
-
-__Add A New Version of An Existing Component:__ This is usually as simple as submitting a PR that includes a new template in the component's directory and a test method to demonstrate that the new version renders as expected. Occasionally you'll want to add parameters to the component class, but usually all that's required is just a fresh template.
 
 __Create A New Component:__ You can create an entirely new component if you want to add something we don't have at all. This requires a PR with a new component class, a default (Tailwind CSS or No CSS) template, and a test class with the default version well tested.
 

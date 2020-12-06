@@ -1,7 +1,8 @@
-<pre>
-    <code>
-        {{ str_replace(['<x-', '</x-'], ['&lt;x-', '&lt;/x-'], $slot ?? '')  }}
+<pre{{ $tagAttributes($attributes, 'pre') }}>
+    <code{{ $tagAttributes($attributes, 'code') }} {!! $attributes->merge(['class' => $attributes->highlightjs ?? '']) !!} >
+        {!! $unencode($unencode($slot)) !!}
     </code>
 </pre>
-{{-- CSS: None --}}
-{{-- JS: None --}}
+
+{{-- @wildcard | pre_* | attributes applied to <pre> --}}
+{{-- @wildcard | code_* | attributes applied to <code> --}}
