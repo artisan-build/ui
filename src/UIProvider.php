@@ -25,10 +25,6 @@ class UIProvider extends ServiceProvider
             }
         }
 
-        if (!in_array('guest-layout', Blade::getClassComponentAliases())) {
-            Blade::component(GuestLayoutComponent::class, 'guest-layout');
-        }
-
         Route::get('/artisan-ui/components/{component}/{kit?}', DocumentationController::class)
             ->name('artisan-ui-component-doc');
 

@@ -9,7 +9,7 @@ class GuestLayoutComponent extends Component
     public function render()
     {
         return <<<'blade'
-        <div>
+        <div id="test-only">
             {{ $slot }}
         </div>
     blade;

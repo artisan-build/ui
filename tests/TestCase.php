@@ -2,9 +2,11 @@
 
 namespace Tests;
 
+use ArtisanBuild\UI\GuestLayoutComponent;
 use ArtisanBuild\UI\UIProvider;
 use GrahamCampbell\Markdown\Facades\Markdown;
 use GrahamCampbell\Markdown\MarkdownServiceProvider;
+use Illuminate\Support\Facades\Blade;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
@@ -12,6 +14,10 @@ abstract class TestCase extends BaseTestCase
     public function setUp(): void
     {
         parent::setUp();
+
+        if (!in_array('guest-layout', Blade::getClassComponentAliases())) {
+            Blade::component(GuestLayoutComponent::class, 'guest-layout');
+        }
     }
 
     public function tearDown(): void
