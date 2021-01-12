@@ -35,14 +35,11 @@ class Button extends BaseComponent
 
     public function buildColors()
     {
+
     }
 
     public function buildSizes()
     {
     }
 
-    public function render()
-    {
-        return view($this->template);
-    }
 }

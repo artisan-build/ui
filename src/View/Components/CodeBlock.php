@@ -8,19 +8,11 @@ class CodeBlock extends BaseComponent
 
     public $signature  = 'x-aui-code-block';
 
+    public $description = 'A code block styled with highlight.js';
+
     public function __construct($kit = 'default')
     {
         $this->kit = $kit;
         parent::__construct();
-    }
-
-    public function unencode(string $string): string
-    {
-        return str_replace(['<x-', '</x-'], ['&lt;x-', '&lt;/x-'], $string);
-    }
-
-    public function render()
-    {
-        return view($this->template);
     }
 }

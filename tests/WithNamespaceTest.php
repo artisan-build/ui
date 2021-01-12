@@ -5,7 +5,7 @@ namespace Tests;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Str;
 
-class WithoutNamespaceTest extends TestCaseWithoutNamespace
+class WithNamespaceTest extends TestCase
 {
     /** @test */
     public function it_honors_config_value()
@@ -18,6 +18,7 @@ class WithoutNamespaceTest extends TestCaseWithoutNamespace
             }
         }
 
-        $this->assertGreaterThan(0, $raw);
+        // The expected number is 1 because we load a guest-layout component if one does not exist to wrap the docs.
+        $this->assertEquals(1, $raw);
     }
 }

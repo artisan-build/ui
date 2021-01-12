@@ -3,7 +3,6 @@
 namespace ArtisanBuild\UI\View\Components;
 
 use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 
@@ -11,6 +10,7 @@ class BaseComponent extends Component
 {
     private $alias;
     protected $template;
+    protected $kit;
 
     protected $defaultDisplayClass = 'inline-flex';
 
@@ -18,29 +18,25 @@ class BaseComponent extends Component
     {
         $this->getAlias();
         $this->getTemplate();
-        $this->prepareForKit();
     }
 
-    public function getAlias()
+    public function getAlias(): void
     {
         $this->alias = array_search(get_called_class(), Blade::getClassComponentAliases());
     }
 
-    public function getTemplate()
+    public function getTemplate(): void
     {
         $this->template = 'artisan-ui::' . join('.',
                 [str_replace('aui-', '', $this->alias), $this->kit]);
     }
 
-    public function prepareForKit()
+    public function render()
     {
-        $method = 'prepareFor' . Str::title($this->kit);
-        if (method_exists($this, $method)) {
-            $this->$method();
-        }
+        return view($this->template);
     }
 
-    public function tagAttributes(ComponentAttributeBag $attributeBag, $tag)
+    public function tagAttributes(ComponentAttributeBag $attributeBag, $tag): string
     {
         $string = '';
         $tag .= '_';
@@ -84,7 +80,24 @@ class BaseComponent extends Component
         return $this->defaultDisplayClass;
     }
 
-    public function render()
+    public function buildClasses(ComponentAttributeBag $attributeBag)
     {
+        dd($attributeBag);
+        $classes = [];
+        $this->buildColors();
+        $this->buildSizes();
+    }
+
+    public function buildColors()
+    {
+    }
+
+    public function buildSizes()
+    {
+    }
+
+    public function unencode(string $string): string
+    {
+        return str_replace(['<x-', '</x-'], ['&lt;x-', '&lt;/x-'], $string);
     }
 }
