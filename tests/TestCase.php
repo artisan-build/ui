@@ -4,8 +4,6 @@ namespace Tests;
 
 use ArtisanBuild\UI\GuestLayoutComponent;
 use ArtisanBuild\UI\UIProvider;
-use GrahamCampbell\Markdown\Facades\Markdown;
-use GrahamCampbell\Markdown\MarkdownServiceProvider;
 use Illuminate\Support\Facades\Blade;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 

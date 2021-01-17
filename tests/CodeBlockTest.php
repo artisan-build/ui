@@ -9,7 +9,7 @@ class CodeBlockTest extends TestCase
     use InteractsWithViews;
 
     /** @test */
-    public function it_renders_code_block_default()
+    public function itRendersCodeBlockDefault()
     {
         $this->assertView('artisan-ui::code-block/default-test')->has('pre');
         $this->assertView('artisan-ui::code-block/default-test')->has('code');

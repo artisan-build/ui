@@ -45,7 +45,6 @@ class Button extends BaseComponent
         $this->classes = str_replace('__sizes__', $this->sizes[$this->size], $this->classes);
     }
 
-
     public function applyCorners(): void
     {
         $this->classes = str_replace('__rounded__', 'rounded-' . $this->rounded, $this->classes);

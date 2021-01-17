@@ -5,7 +5,7 @@ namespace Tests;
 class DocumentationTest extends TestCase
 {
     /** @test */
-    public function it_renders_a_document()
+    public function itRendersADocument()
     {
         $this->withoutExceptionHandling();
         $this->get(route('artisan-ui-component-doc', ['component' => 'code-block']))

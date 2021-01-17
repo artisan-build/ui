@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 class WithoutNamespaceTest extends TestCaseWithoutNamespace
 {
     /** @test */
-    public function it_honors_config_value()
+    public function itHonorsConfigValue()
     {
         $raw = 0;
 

@@ -44,6 +44,7 @@ class DocumentationController
     private function cleanMarkupForDisplay($html)
     {
         $html = str_replace("\t", "\n", $html);
+
         return $html;
     }
 }

@@ -21,12 +21,10 @@ class BaseComponent extends Component
     public string $classes  = '';
     // class and data-* are excluded below because they are inserted elsewhere.
     public array $htmlAttributes = [
-        '*' => ['accesskey', 'contenteditable', 'dir', 'draggable', 'hidden', 'id', 'lang', 'spellcheck', 'style', 'tabindex', 'title', 'translate'],
-        'a' => ['download', 'href', 'hreflang', 'media', 'ping', 'referrerpolciy', 'origin', 'rel', 'target', 'type'],
+        '*'      => ['accesskey', 'contenteditable', 'dir', 'draggable', 'hidden', 'id', 'lang', 'spellcheck', 'style', 'tabindex', 'title', 'translate'],
+        'a'      => ['download', 'href', 'hreflang', 'media', 'ping', 'referrerpolciy', 'origin', 'rel', 'target', 'type'],
         'button' => ['autofocus', 'disabled', 'form', 'formaction', 'formenctype', 'formmethod', 'formnovalidate', 'formtarget', 'name', 'type', 'value'],
     ];
-
-
 
     public function __construct()
     {

@@ -2,13 +2,11 @@
 
 namespace ArtisanBuild\UI;
 
-use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
-use League\CommonMark\MarkdownConverterInterface;
 
 class UIProvider extends ServiceProvider
 {
@@ -27,16 +25,12 @@ class UIProvider extends ServiceProvider
 
         Route::get('/artisan-ui/components/{component}/{kit?}', DocumentationController::class)
             ->name('artisan-ui-component-doc');
-
     }
 
     public function register(): void
     {
-
         $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'artisan-ui');
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views/', 'artisan-ui');
-
-
     }
 }
