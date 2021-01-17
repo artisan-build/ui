@@ -4,5 +4,5 @@ namespace ArtisanBuild\UI\View\Components;
 
 class Far extends Fa
 {
-    public $family = 'r';
+    public string $family = 'r';
 }

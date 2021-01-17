@@ -4,8 +4,6 @@ namespace ArtisanBuild\UI\View\Components;
 
 class CodeBlock extends BaseComponent
 {
-    public $kit;
-
     public $signature  = 'x-aui-code-block';
 
     public $description = 'A code block styled with highlight.js';
@@ -16,9 +14,8 @@ class CodeBlock extends BaseComponent
         'code_*'      => '(wildcard) Any attributes prepended with code_ will be applied to the code tag',
     ];
 
-    public function __construct($kit = 'default')
+    public function __construct()
     {
-        $this->kit = $kit;
         parent::__construct();
     }
 }

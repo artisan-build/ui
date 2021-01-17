@@ -10,6 +10,6 @@ class DocumentationTest extends TestCase
         $this->withoutExceptionHandling();
         $this->get(route('artisan-ui-component-doc', ['component' => 'code-block']))
             ->assertSuccessful()
-            ->assertSee('<h1>Code Block</h1>', false);
+            ->assertSee('<h1>Code Block', false);
     }
 }

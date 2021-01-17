@@ -8,16 +8,32 @@ use Illuminate\View\ComponentAttributeBag;
 
 class BaseComponent extends Component
 {
-    private $alias;
-    protected $template;
-    protected $kit;
+    public string $alias       = '';
+    protected string $template = '';
+    protected string $kit      = 'default';
 
-    protected $defaultDisplayClass = 'inline-flex';
+    public string $color    = 'primary';
+    public string $size     = 'md';
+    public string $family   = 'dark';
+    public string $rounded  = 'md';
+    protected array $colors = [];
+    protected array $sizes  = [];
+    public string $classes  = '';
+    // class and data-* are excluded below because they are inserted elsewhere.
+    public array $htmlAttributes = [
+        '*' => ['accesskey', 'contenteditable', 'dir', 'draggable', 'hidden', 'id', 'lang', 'spellcheck', 'style', 'tabindex', 'title', 'translate'],
+        'a' => ['download', 'href', 'hreflang', 'media', 'ping', 'referrerpolciy', 'origin', 'rel', 'target', 'type'],
+        'button' => ['autofocus', 'disabled', 'form', 'formaction', 'formenctype', 'formmethod', 'formnovalidate', 'formtarget', 'name', 'type', 'value'],
+    ];
+
+
 
     public function __construct()
     {
         $this->getAlias();
         $this->getTemplate();
+        $this->buildColors();
+        $this->buildSizes();
     }
 
     public function getAlias(): void
@@ -47,53 +63,70 @@ class BaseComponent extends Component
         return $string;
     }
 
-    /**
-     * @param null $tag
-     *
-     * @return string
-     *                accesskey 	Specifies a shortcut key to activate/focus an element
-    contenteditable 	Specifies whether the content of an element is editable or not
-    data-* 	Used to store custom data private to the page or application
-    dir 	Specifies the text direction for the content in an element
-    draggable 	Specifies whether an element is draggable or not
-    hidden 	Specifies that an element is not yet, or is no longer, relevant
-    id 	Specifies a unique id for an element
-    lang 	Specifies the language of the element's content
-    spellcheck 	Specifies whether the element is to have its spelling and grammar checked or not
-    style 	Specifies an inline CSS style for an element
-    tabindex 	Specifies the tabbing order of an element
-    title 	Specifies extra information about an element
-    translate
-     */
-    public function defaultAttributes(ComponentAttributeBag $attributeBag)
+    public function buildColors(): void
     {
-    }
+        $colorFamilies = ['primary', 'secondary', 'success', 'warning', 'info', 'danger'];
 
-    public function displayClass(ComponentAttributeBag $attributeBag, $tag = null)
-    {
-        $want = is_null($tag) ? 'class' : $tag . '_class';
+        $color = $this->color;
 
-        foreach ($attributeBag->only(['inline', 'inline-flex', 'flex', 'block', 'inline-block']) as $class) {
-            return '';
+        if (in_array($this->color, $colorFamilies)) {
+            $color = config('artisan-ui.colors.' . $this->color);
         }
 
-        return $this->defaultDisplayClass;
+        // Default to dark background buttons, alerts, etc.
+        $colors = [
+            'background'        => $color . '-' . config('artisan-ui.color_depths.dark-background'),
+            'background-hover'  => $color . '-' . config('artisan-ui.color_depths.dark-background-hover'),
+            'background-active' => $color . '-' . config('artisan-ui.color_depths.dark-background-active'),
+            'text'              => $color . '-' . config('artisan-ui.color_depths.text_over_dark'),
+            'border'            => $color . '-' . config('artisan-ui.color_depths.dark-border'),
+        ];
+
+        if ($this->family === 'light') {
+            $colors = [
+                'background'        => $color . '-' . config('artisan-ui.color_depths.light-background'),
+                'background-hover'  => $color . '-' . config('artisan-ui.color_depths.light-background-hover'),
+                'background-active' => $color . '-' . config('artisan-ui.color_depths.light-background-active'),
+                'text'              => $color . '-' . config('artisan-ui.color_depths.light_over_dark'),
+                'border'            => $color . '-' . config('artisan-ui.color_depths.light-border'),
+            ];
+        }
+
+        if ($this->color === 'black') {
+            $colors = [
+                'background'        => 'black',
+                'background-hover'  => 'gray' . '-' . config('artisan-ui.color_depths.dark-background-hover'),
+                'background-active' => 'gray' . '-' . config('artisan-ui.color_depths.dark-background-active'),
+                'text'              => 'white',
+                'border'            => 'black',
+            ];
+        }
+
+        if ($this->color === 'white') {
+            $colors = [
+                'background'        => 'white',
+                'background-hover'  => 'gray' . '-' . config('artisan-ui.color_depths.light-background-hover'),
+                'background-active' => 'gray' . '-' . config('artisan-ui.color_depths.light-background-active'),
+                'text'              => 'black',
+                'border'            => 'gray' . '-' . config('artisan-ui.color_depths.light-border'),
+            ];
+        }
+
+        $this->colors = $colors;
     }
 
-    public function buildClasses(ComponentAttributeBag $attributeBag)
+    public function buildSizes(): void
     {
-        dd($attributeBag);
-        $classes = [];
-        $this->buildColors();
-        $this->buildSizes();
-    }
+        $sizes = [
+            'xs'  => 'px-2.5 py-1.5 leading-4',
+            'sm'  => 'px-3 py-2 leading-4',
+            'md'  => 'px-4 py-2 leading-5',
+            'lg'  => 'px-4 py-2 leading-6',
+            'xl'  => 'px-6 py-3 leading-6',
+            '2xl' => 'px-8 py-4 leading-6',
+        ];
 
-    public function buildColors()
-    {
-    }
-
-    public function buildSizes()
-    {
+        $this->sizes = $sizes;
     }
 
     public function unencode(string $string): string

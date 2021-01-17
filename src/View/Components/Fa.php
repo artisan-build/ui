@@ -4,9 +4,8 @@ namespace ArtisanBuild\UI\View\Components;
 
 class Fa extends BaseComponent
 {
-    public $family = 'r';
-    public $kit    = 'default';
-    public $class  = '';
+    public string $family = 'r';
+    public string $class  = '';
 
     public function render()
     {

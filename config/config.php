@@ -2,7 +2,7 @@
 
 return [
     'use_namespace' => env('ARTISAN_UI_USE_NAMESPACE', true),
-    'colors' => [
+    'colors'        => [
         'primary'   => env('ARTISAN_UI_PRIMARY_COLOR', 'blue'),
         'secondary' => env('ARTISAN_UI_SECONDARY_COLOR', 'orange'),
         'success'   => env('ARTISAN_UI_SUCCESS_COLOR', 'green'),
@@ -11,12 +11,15 @@ return [
         'tailwind'  => ['gray', 'red', 'yellow', 'green', 'blue', 'indigo', 'purple', 'pink'],
     ],
     'color_depths' => [
-        'text_over_dark'         => '100', // Number or white
-        'text_over_light'        => '900', // Number or black
-        'background'             => '600',
-        'background-hover'       => '700',
-        'background-light'       => '100',
-        'background-light-hover' => '200',
-        'border'                 => '800',
+        'text_over_dark'              => '100', // Number or white
+        'text_over_light'             => '900', // Number or black
+        'dark-background'             => '600',
+        'dark-background-hover'       => '500',
+        'dark-background-active'      => '700',
+        'dark-border'                 => '800',
+        'light-background'            => '100',
+        'light-background-hover'      => '50',
+        'light-background-active'     => '200',
+        'light-border'                => '300',
     ],
 ];

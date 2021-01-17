@@ -27,7 +27,7 @@ abstract class TestCase extends BaseTestCase
 
     protected function getPackageProviders($app)
     {
-        return [UIProvider::class, MarkdownServiceProvider::class];
+        return [UIProvider::class];
     }
 
     protected function getEnvironmentSetUp($app)
