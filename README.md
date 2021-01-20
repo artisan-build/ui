@@ -2,6 +2,8 @@
 
 An open source UI Kit featuring Tailwind and Alpine-powered Blade components, optimized for use with or without Livewire.
 
+<a href="https://artisan.build"><img src="https://repository-images.githubusercontent.com/323002393/4261fb80-42ba-11eb-9d7b-2c295d42da7b" alt="Artisan, Build" height="360"></a>
+
 ### Installation
 
 Assuming that you are running PHP 7.4 or higher and Laravel 7 or higher, just run:
